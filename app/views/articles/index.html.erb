@@ -2,6 +2,9 @@
 
 Our blog has <%= Article.public_count %> articles and counting!
 
+<p><strong>name:</strong> dhh</p>
+<p><strong>password:</strong> secret</p>
+
 <ul>
   <% @articles.each do |article| %>
     <% unless article.archived? %>
