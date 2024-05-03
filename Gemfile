@@ -35,6 +35,16 @@ gem 'dotenv-rails', '~> 3.1', '>= 3.1.1', groups: [:development, :test]
 # Process manager for applications with multiple components
 gem 'foreman', '~> 0.88.1'
 
+# rspec-rails is a testing framework for Rails 5+.
+gem 'rspec-rails', '~> 6.1', '>= 6.1.2', groups: [:development, :test]
+
+# factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+
+# Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common 
+# Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
+gem 'shoulda-matchers', '~> 6.2', group: :test
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
