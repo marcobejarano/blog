@@ -45,6 +45,13 @@ gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
 # Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
 gem 'shoulda-matchers', '~> 6.2', group: :test
 
+# Capybara is an integration testing tool for rack based web applications. 
+# It simulates how a user would interact with a website
+gem 'capybara', '~> 3.40', group: :test
+
+# Run Selenium tests more easily with install and updates for all supported webdrivers.
+gem 'webdrivers', '~> 5.3', '>= 5.3.1', group: :test
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
