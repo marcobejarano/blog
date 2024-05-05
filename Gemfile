@@ -52,6 +52,9 @@ gem 'capybara', '~> 3.40', group: :test
 # Run Selenium tests more easily with install and updates for all supported webdrivers.
 gem 'webdrivers', '~> 5.3', '>= 5.3.1', group: :test
 
+# The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
+gem 'bootstrap', '~> 5.3', '>= 5.3.3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
