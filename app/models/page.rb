@@ -1,7 +1,12 @@
 class Page < ApplicationRecord
+  attr_accessor :tags_string
+
   belongs_to :user
+  has_many :page_tags, dependent: :destroy
+  has_many :tags, through: :page_tags
 
   before_validation :make_slug
+  after_save :update_tags
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
@@ -35,13 +40,7 @@ class Page < ApplicationRecord
   def make_slug
     return unless title
 
-    self.slug = title
-      .downcase
-      .gsub(/[_ ]/, '-')
-      .gsub(/[^-a-z0-9+]/, '')
-      .gsub(/-{2,}/, '-')
-      .gsub(/^-/, '')
-      .chomp('-')
+    self.slug = NameCleanup.clean(title)
   end
 
   def self.month_year_list
@@ -55,5 +54,16 @@ class Page < ApplicationRecord
       ORDER BY year DESC, month_number DESC
     SQL
     ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def update_tags
+    self.tags = []
+    return if tags_string.blank?
+
+    tags_string.split(/\s+/).each do |name|
+      name = NameCleanup.clean(name)
+
+      tags << Tag.find_or_create_by(name:)
+    end
   end
 end
